@@ -1,0 +1,35 @@
+{
+  "name": "greetings-webapp",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://travis-ci.org/FidelDhlamini/greetings-webapp.svg?branch=master)](https://travis-ci.org/FidelDhlamini/greetings-webapp)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FidelDhlamini/greetings-webapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FidelDhlamini/greetings-webapp/issues"
+  },
+  "homepage": "https://github.com/FidelDhlamini/greetings-webapp#readme"
+}

@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <link rel="stylesheet" href="registration_number.css">
+ 
+</head>
+<body>
+    <div class="container">
+
+                <div class="row">
+                    <div class="center">
+                        <h1>Registration number</h1>
+                        <input name="registration" rows='1' cols="15" class="regInput"
+                            placeholder="Enter a registration number"></input>
+                        <!-- <input type="text" class="regInput" oninput="sortRegistrations()"> -->
+                    </div>
+
+                    <div class="row">'
+                        <div class="col-12">
+                            <div class="center error">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="center">
+                    <button class="button-primary addButton" type="button" name="button">Add</button>
+                    <input type="button" value="Clear" class="resetButton" onClick="location.href=location.href">
+                </div>
+ <div class="row">
+                    <div class="col-12 center">
+                        <span class="displayPlate">
+
+                        </span>
+
+                    </div>
+                </div>
+                <div class="center dropDown1">
+                    <select class="selectTown">
+                        <option class="selectTown" value="">Select Town</option>
+                        <option class="selectTown" value="CA">Cape Town</option>
+                        <option class="selectTown" value="CL">Stellenbosch</option>
+                        <option class="selectTown" value="CJ">Paarl</option>
+
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="center plates">
+
+                        <i></i>
+
+
+                    </div>
+                    <!-- <div class="row">
+                <div class="left selectedPlates">
+                </div> -->
+                    <!-- </div> -->
+                </div>
+          
+    </div>
+</body>
+
+
+
+
+</html>
