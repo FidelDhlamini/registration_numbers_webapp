@@ -15,6 +15,7 @@
                 <div class="row">
                     <div class="center">
                         <h1>Registration number</h1>
+                        <form action="/addReg" method="POST">
                         <input name="registration" rows='1' cols="15" class="regInput"
                             placeholder="Enter a registration number"></input>
                         <!-- <input type="text" class="regInput" oninput="sortRegistrations()"> -->
@@ -31,13 +32,14 @@
                 </div>
 
                 <div class="center">
-                    <button class="button-primary addButton" type="button" name="button">Add</button>
+                    <button class="button-primary addButton" type="submit" name="button">Add</button>
                     <input type="button" value="Clear" class="resetButton" onClick="location.href=location.href">
                 </div>
+                </form>
  <div class="row">
                     <div class="col-12 center">
                         <span class="displayPlate">
-
+                            {{regNumbers}}
                         </span>
 
                     </div>

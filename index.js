@@ -60,27 +60,36 @@ app.use(bodyParser.json())
 
 
 
-app.post('/greetUser', async function (req, res) {
-    let regTyped = req.body.reg;
-    let fromWhichTwn = req.body.townName;
+app.post('/addReg', async function (req, res) {
+    let regTyped = req.body.registration;
+    // let fromWhichTwn = req.body.townName;
+    console.log(regTyped)
 
-        registration.storePlate(regTyped);
+      registration.storePlate(regTyped);
+      console.log(registration.storePlate(regTyped));
 
    
     // if (regTyped.startsWith("CA")||regTyped.startsWith("CJ")||regTyped.startsWith("CJ")) {
     //     registration.
     
-    // } 
+    // }
+    console.log(registration.showAllRegNumbers())
 
-    res.redirect('/');
+    res.render("index", {
+        regNumbers: registration.showAllRegNumbers(),
+        message: registration.getMessage()
+       
+
+    })
+
 });
 
 
 app.get('/', async function (req, res) {
     
     res.render("index", {
-        regNumbers: await registration.showAllRegNumbers(),
-        message: await registration.getMessage()
+        regNumbers: registration.showAllRegNumbers(),
+        message: registration.getMessage()
 
     })
    
