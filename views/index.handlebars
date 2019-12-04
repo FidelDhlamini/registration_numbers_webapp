@@ -6,67 +6,95 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <link rel="stylesheet" href="registration_number.css">
- 
+    {{!-- <link rel="stylesheet" href="registration_number.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+   
+
+
 </head>
+
 <body background="../public/images/black-paper-textures.jpg">
-    <div class="container">
+    <div class="ui container">
 
-                <div class="row">
-                    <div class="center">
-                        <h1>Registration number</h1>
-                        <form action="/addReg" method="POST">
-                        <input name="registration" rows='1' cols="15" class="regInput"
-                            placeholder="Enter a registration number"></input>
-                        <!-- <input type="text" class="regInput" oninput="sortRegistrations()"> -->
-                    </div>
+        <div class="row">
+            <div class="center">
+                <h1>Registration number</h1>
+                <form action="/addReg" method="POST">
+                    {{!-- <input name="registration" rows='1' cols="15" class="regInput"
+                        placeholder="Enter a registration number"></input> --}}
+                    <!-- <input type="text" class="regInput" oninput="sortRegistrations()"> -->
+           
+            <div class="ui input">
+                <input name="registration" row='1' cols="20" class="regInput" placeholder="Enter a registration number">
+            </div>
+      </div>
 
-                    <div class="row">'
-                        <div class="col-12">
-                            <div class="center error">
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="center">
-                    <button class="button-primary addButton" type="submit" name="button">Add</button>
-                    <input type="button" value="Clear" class="resetButton" onClick="location.href=location.href">
-                </div>
-                </form>
- <div class="row">
-                    <div class="col-12 center">
-                        <span class="displayPlate">
-                            {{regNumbers}}
-                        </span>
+            <div class="row">'
+                <div class="col-12">
+                    <div class="center error">
 
                     </div>
                 </div>
-                <div class="center dropDown1">
-                    <select class="selectTown">
-                        <option class="selectTown" value="">Select Town</option>
-                        <option class="selectTown" value="CA">Cape Town</option>
-                        <option class="selectTown" value="CL">Stellenbosch</option>
-                        <option class="selectTown" value="CJ">Paarl</option>
+            </div>
 
-                    </select>
-                </div>
+        </div>
 
-                <div class="row">
-                    <div class="center plates">
+        <div class="center">
+            <button class="ui basic green button addButton" type="submit" name="button">Add</button>
+            <input type="button" value="Clear" class="ui basic green button" onClick="location.href=location.href">
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-12 center displayPlte">
+                <span class="displayPlate">
+                    {{regNumbers}}
+                </span>
 
-                        <i></i>
+            </div>
+            <div class="col-12 center">
+                <span class="displayMessage">
+                    {{message}}
+                </span>
+            </div>
+            <div class="col-12 center">
+                <span class="dspyError">
+                    {{message.errorMessage}}
+                </span>
+            </div>
+        </div>
+        <div class="center dropDown1">
+            <form action="/filter" method="POST">
+            <div class="col-12 center townList">
+            <select class="ui dropdown selectTown" name="townSlct">
+                <option class="selectTown" value="">Select Town</option>
+                <option class="selectTown" value="CA">Cape Town</option>
+                <option class="selectTown" value="CJ">Paarl</option>
+                <option class="selectTown" value="CL">Stellenbosch</option>
+            </select>
+
+            </div>
+            <hr>
+
+            <div class="col-12 center">
+            <button class="ui basic green button" type="submit"> Show </button>
+            </div>
+            </form>
+            
+         </div>
 
 
-                    </div>
-                    <!-- <div class="row">
-                <div class="left selectedPlates">
-                </div> -->
-                    <!-- </div> -->
-                </div>
-          
+            <div class="center plates">
+                <li class="fltPlates">
+                     {{filteredReg}}
+                </li>
+
+                   
+
+
+                </span>
+            </div>
+        </div>
+
     </div>
 </body>
 

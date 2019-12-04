@@ -1,46 +1,43 @@
 module.exports = function RegistrationCheck() {
     var numberPlates =  [];
     var message = ""
+    var errorMessage;
 
     function storePlate(plate) {
-        // if (plate === "") {
+        if (plate === "") {
         
-        //     message = 'Enter a registration number';
-        //     return false;
-        // }
-        // console.log(plate)
-        // // plate = plate.toUpperCase();
-
-        // if (plate.startsWith("CA") || plate.startsWith("CL") || plate.startsWith("CJ")) {
+            message = 'Enter a registration number';
+            return false;
+        }
+       
+        if (plate.startsWith("CA") || plate.startsWith("CL") || plate.startsWith("CJ")) {
 
 
 
 
-        //     if (plate.length > 10) {
-        //         message = "Registration number cannot exceed 10 characters"
-        //         return false;
-        //     }
+            if (plate.length > 10) {
+                message = "Registration number cannot exceed 10 characters"
+                return false;
+            }
 
 
-        //     if (plate !== "" || plate !== undefined) {
+            if (plate !== "" || plate !== undefined) {
 
-        //         if (!numberPlates.includes(plate)) {
-        //             numberPlates.push(plate);
-        //             message = "Registration number added.";
-        //             return true;
-        //         } else {
-        //             message = "Registration number already exists";
-        //             return false;
-        //         }
-        //     }
-        //     return false;
-        // } else {
-        //     message = "Invalid Registration number";
-        //     return false;
-        // }
-        numberPlates.push(plate);
-        message = "Registration number added.";
-        return true;
+                if (!numberPlates.includes(plate)) {
+                    numberPlates.push(plate);
+                    message = "Registration number added.";
+                    return true;
+                } else {
+                    message = "Registration number already exists";
+                    return false;
+                }
+            }
+            return false;
+        } else {
+            message = "Invalid Registration number";
+            return false;
+        }
+       
     }
 
 
@@ -50,6 +47,10 @@ module.exports = function RegistrationCheck() {
 
     function getMessage() {
         return message;
+    }
+    
+    function errorMsg(){
+        return errorMessage;
     }
 
     function filterRegNum(townTag) {
@@ -73,7 +74,8 @@ module.exports = function RegistrationCheck() {
         storePlate,
         showAllRegNumbers,
         filterRegNum,
-        getMessage
+        getMessage,
+        errorMsg
 
     }
 }

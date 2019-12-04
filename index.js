@@ -10,7 +10,6 @@ const session = require('express-session');
 const pg = require("pg");
 const Pool = pg.Pool;
 
-// we are using a special test database for the tests
  const connectionString = process.env.DATABASE_URL || 'postgresql://codex:codex123@localhost:5432/testdb';
 
 const pool = new Pool({
@@ -28,16 +27,11 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// initialise the flash middleware
+
 app.use(flash());
 
 app.use(express.static('public'))
 
-
-// app.engine('handlebars', exphbs({
-//     defaultLayout: 'main'
-// }));
-// app.set('view engine', 'handlebars');
 
 const handlebarSetup = exphbs({
     partialsDir: "./views/partials",
@@ -50,6 +44,7 @@ app.engine('handlebars', handlebarSetup);
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
     extended: false
@@ -62,18 +57,8 @@ app.use(bodyParser.json())
 
 app.post('/addReg', async function (req, res) {
     let regTyped = req.body.registration;
-    // let fromWhichTwn = req.body.townName;
-    console.log(regTyped)
 
-      registration.storePlate(regTyped);
-      console.log(registration.storePlate(regTyped));
-
-   
-    // if (regTyped.startsWith("CA")||regTyped.startsWith("CJ")||regTyped.startsWith("CJ")) {
-    //     registration.
-    
-    // }
-    console.log(registration.showAllRegNumbers())
+        registration.storePlate(regTyped);
 
     res.render("index", {
         regNumbers: registration.showAllRegNumbers(),
@@ -93,6 +78,18 @@ app.get('/', async function (req, res) {
 
     })
    
+});
+
+app.post('/filter', async function (req, res) {
+
+    let townSelected = req.body.townSlct
+    let filteredPlates = registration.filterRegNum(townSelected)
+    console.log(filteredPlates)
+    res.render("index", {
+        filteredReg : filteredPlates
+
+    })
+
 });
 
 
